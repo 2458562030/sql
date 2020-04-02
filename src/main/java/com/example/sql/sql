@@ -1,0 +1,33 @@
+SELECT
+	COUNT( 1 ) as total,
+	c.NAME
+FROM
+	`test_order` AS a
+	LEFT JOIN test_user_area AS b ON a.user_id = b.user_id
+	LEFT JOIN test_area AS c ON c.id = b.area_id
+WHERE
+	a.type = 1
+GROUP BY
+	c.`name`
+
+
+
+SELECT
+	COUNT( 1 ) as total,
+	b.`name`
+FROM
+	`test_order` AS a
+	LEFT JOIN  test_user AS b ON a.user_id = b.id
+WHERE
+	a.type = 1
+GROUP BY
+	b.`name`
+	LIMIT 0,99
+
+
+SELECT
+count(1) AS total,
+ DATE_FORMAT(update_time,'%Y-%m-%d') as update_time
+FROM
+	`test_order`
+	WHERE type = 1
